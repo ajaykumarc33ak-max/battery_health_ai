@@ -149,16 +149,20 @@ st.caption("Battery data input • SOH estimation • unusual-pattern detection 
 st.info("Safety note: this is a college-project prototype, not a certified battery safety system. Do not use it to make charging or driving safety decisions.")
 
 with st.sidebar:
-    st.header("1 · Choose input")
-    input_mode = st.radio("How will you provide battery data?", [
-        "Demo data", "Upload CSV", "Connect to battery API"
-    ])
-    st.divider()
-    st.subheader("What the app needs")
+    st.header("About this project")
+    st.write("Battery Health AI estimates state of health (SOH) from battery measurements and flags unusual patterns.")
+    st.subheader("Required data")
     st.write("Cycle number, voltage (V), current (A), temperature (°C), and measured capacity (Ah).")
-    st.caption("A website cannot read an EV battery by itself. Live mode needs a BMS/IoT gateway or service that exposes an HTTP JSON endpoint.")
+    st.caption("A website cannot read an EV battery by itself. Live mode needs a compatible BMS/IoT gateway or service.")
 
 st.markdown("### 2 · Provide battery data")
+st.write("**Choose an input method below.** On mobile, these options are shown directly on this page.")
+input_mode = st.radio(
+    "Battery data source",
+    ["Demo data", "Upload CSV", "Connect to battery API"],
+    index=0,
+    key="main_input_mode",
+)
 data = None
 source_label = ""
 
