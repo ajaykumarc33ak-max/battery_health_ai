@@ -1,5 +1,4 @@
-
-    """
+"""
 Battery Health AI — college project prototype
 Manual CSV analysis + optional live telemetry API connection.
 Live mode requires a battery/BMS gateway that exposes an HTTP JSON endpoint.
